@@ -10,13 +10,17 @@ import {
 } from "@/components/ui/select"
 
 export function LanguageSwitcher() {
-  const { language, setLanguage } = useLanguage()
+  const { language, setLanguage, isLoading } = useLanguage()
 
   const languages = [
     { code: "en", label: "English", nativeLabel: "English" },
     { code: "ar", label: "العربية", nativeLabel: "العربية" },
     { code: "he", label: "עברית", nativeLabel: "עברית" },
   ]
+
+  if (isLoading) {
+    return <div className="w-[120px] h-10" />
+  }
 
   return (
     <Select value={language} onValueChange={(value) => setLanguage(value as "en" | "ar" | "he")}>
