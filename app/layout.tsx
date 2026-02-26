@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { DirectionProvider } from "@/components/ui/direction";
+import { LanguageProvider } from "@/components/language-provider";
 
 const notoSansArabic = Noto_Sans_Arabic({
   subsets: ['latin'],
@@ -37,9 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" className={`${geistSans.variable} ${geistMono.variable} ${notoSansArabic.variable} ${notoSansHebrew.variable} antialiased`} suppressHydrationWarning dir="rtl">
-      <body
-
-      >
+      <body>
         <DirectionProvider direction="rtl">
           <ThemeProvider
             attribute="class"
@@ -47,7 +46,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <LanguageProvider>
+              {children}
+            </LanguageProvider>
           </ThemeProvider>
         </DirectionProvider>
       </body>

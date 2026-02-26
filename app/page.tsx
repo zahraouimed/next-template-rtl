@@ -1,11 +1,13 @@
 
 import { ModeToggle } from "@/components/mode-toggle";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { ExampleCardHebrew } from "@/components/example-card-hebrew";
 import { ExampleFormArabic } from "@/components/example-form-arabic";
 export default function Page() {
   return (
     <div className="min-h-screen flex flex-col p-6">
-      <header className="flex justify-end p-4">
+      <header className="flex justify-end items-center gap-4 p-4">
+        <LanguageSwitcher />
         <ModeToggle />
       </header>
       <main className="flex-1 flex items-center justify-center">
